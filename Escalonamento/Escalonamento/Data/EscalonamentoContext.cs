@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Escalonamento.Models;
 
 namespace Escalonamento.Models
 {
@@ -14,5 +15,7 @@ namespace Escalonamento.Models
         }
 
         public DbSet<Escalonamento.Models.MedEnf> MedEnf { get; set; }
+
+        public DbSet<Escalonamento.Models.Trocas> Trocas { get; set; }
     }
 }
