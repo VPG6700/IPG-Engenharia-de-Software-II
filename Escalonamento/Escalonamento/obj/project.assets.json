@@ -12218,23 +12218,39 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\KeyF\\.nuget\\packages\\": {},
+=======
+    "C:\\Users\\Paulo\\.nuget\\packages\\": {},
+>>>>>>> menupricipal
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\KeyF\\Documents\\GitHub\\IPG-Engenharia-de-Software-II\\Escalonamento\\Escalonamento\\Escalonamento.csproj",
       "projectName": "Escalonamento",
       "projectPath": "C:\\Users\\KeyF\\Documents\\GitHub\\IPG-Engenharia-de-Software-II\\Escalonamento\\Escalonamento\\Escalonamento.csproj",
       "packagesPath": "C:\\Users\\KeyF\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\KeyF\\Documents\\GitHub\\IPG-Engenharia-de-Software-II\\Escalonamento\\Escalonamento\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\Paulo\\Documents\\GitHub\\IPG-Engenharia-de-Software-II\\Escalonamento\\Escalonamento\\Escalonamento.csproj",
+      "projectName": "Escalonamento",
+      "projectPath": "C:\\Users\\Paulo\\Documents\\GitHub\\IPG-Engenharia-de-Software-II\\Escalonamento\\Escalonamento\\Escalonamento.csproj",
+      "packagesPath": "C:\\Users\\Paulo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Paulo\\Documents\\GitHub\\IPG-Engenharia-de-Software-II\\Escalonamento\\Escalonamento\\obj\\",
+>>>>>>> menupricipal
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\KeyF\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+        "C:\\Users\\Paulo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> menupricipal
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
