@@ -1,8 +1,9 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 body {
+    background-color: lightblue;
     padding-top: 50px;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
 }
 
 /* Wrapping element */
@@ -32,6 +33,7 @@ body {
 @media screen and (max-width: 767px) {
     /* Hide captions */
     .carousel-caption {
-        display: none;
+        display: block;
+    }
     }
 }

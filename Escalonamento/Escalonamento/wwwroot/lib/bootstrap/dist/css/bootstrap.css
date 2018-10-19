@@ -137,8 +137,8 @@ html input[disabled] {
 }
 button::-moz-focus-inner,
 input::-moz-focus-inner {
-  padding: 0;
-  border: 0;
+  padding: 5;
+  border: 10;
 }
 input {
   line-height: normal;
