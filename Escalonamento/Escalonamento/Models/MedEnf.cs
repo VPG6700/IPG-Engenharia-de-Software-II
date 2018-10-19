@@ -15,6 +15,7 @@ namespace Escalonamento.Models
         [Required]
         [DataType(DataType.Date)]
         public DateTime DataNasc { get; set; }
+        [Required]
         public string Funcao { get; set; }
         public int Telemovel { get; set; }
         public string Observacoes { get; set; }
