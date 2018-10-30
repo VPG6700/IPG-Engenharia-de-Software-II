@@ -33,7 +33,7 @@ namespace Escalonamento.Controllers
             }
 
             var trocas = await _context.Trocas
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.TrocasId == id);
             if (trocas == null)
             {
                 return NotFound();
@@ -45,6 +45,7 @@ namespace Escalonamento.Controllers
         // GET: Trocas/Create
         public IActionResult Create()
         {
+
             return View();
         }
 
@@ -53,7 +54,7 @@ namespace Escalonamento.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome1,Turno1,Nome2,Turno2")] Trocas trocas)
+        public async Task<IActionResult> Create([Bind("TrocasId,Nome1,Dia1,Turno1,Nome2,Dia2,Turno2")] Trocas trocas)
         {
             if (ModelState.IsValid)
             {
@@ -85,9 +86,9 @@ namespace Escalonamento.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome1,Turno1,Nome2,Turno2")] Trocas trocas)
+        public async Task<IActionResult> Edit(int id, [Bind("TrocasId,Nome1,Dia1,Turno1,Nome2,Dia2,Turno2")] Trocas trocas)
         {
-            if (id != trocas.Id)
+            if (id != trocas.TrocasId)
             {
                 return NotFound();
             }
@@ -101,7 +102,7 @@ namespace Escalonamento.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TrocasExists(trocas.Id))
+                    if (!TrocasExists(trocas.TrocasId))
                     {
                         return NotFound();
                     }
@@ -124,7 +125,7 @@ namespace Escalonamento.Controllers
             }
 
             var trocas = await _context.Trocas
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.TrocasId == id);
             if (trocas == null)
             {
                 return NotFound();
@@ -146,7 +147,7 @@ namespace Escalonamento.Controllers
 
         private bool TrocasExists(int id)
         {
-            return _context.Trocas.Any(e => e.Id == id);
+            return _context.Trocas.Any(e => e.TrocasId == id);
         }
     }
 }

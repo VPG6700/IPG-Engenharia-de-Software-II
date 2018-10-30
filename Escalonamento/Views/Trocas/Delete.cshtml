@@ -18,6 +18,12 @@
             @Html.DisplayFor(model => model.Nome1)
         </dd>
         <dt>
+            @Html.DisplayNameFor(model => model.Dia1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dia1)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.Turno1)
         </dt>
         <dd>
@@ -30,6 +36,12 @@
             @Html.DisplayFor(model => model.Nome2)
         </dd>
         <dt>
+            @Html.DisplayNameFor(model => model.Dia2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dia2)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.Turno2)
         </dt>
         <dd>
@@ -38,7 +50,7 @@
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="TrocasId" />
         <input type="submit" value="Delete" class="btn btn-default" /> |
         <a asp-action="Index">Back to List</a>
     </form>
