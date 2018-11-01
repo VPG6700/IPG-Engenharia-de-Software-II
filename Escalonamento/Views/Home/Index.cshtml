@@ -1,29 +1,34 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 }
 
 
 <h2>Bem Vindo</h2>
+<div class="btn-group-vertical">
+    <a asp-action="" class="btn btn-primary">Visualizar escala</a>
+
+    <a asp-action="MedEnf" class="btn btn-primary">Cordenador dos Médicos</a>
+
+    <a asp-action="" class=" btn btn-primary">Cordenador Enfermeiros</a>
+
+    <a asp-action="" class="btn btn-primary">Requesição dos Enfermeiro</a>
+
+   
+
+</div>
+
 <style>
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: 19px;
-}
+    img {
+        display:inline-table;
+        margin-left:60px;
+        margin-top:-50px;
+        margin-right:0px;
+    }
 </style>
-<img src="~/images/urgencia_emergencia.png" usemap="#workmap" width="400" height="379">
+<img src="~/images/urgencia_emergencia.png" usemap="#workmap" width="300" height="279">
 
-<ul style="list-style-type:none">
-    <li><p><a asp-action="" class="btn btn-primary">Visualizar escala</a></p></li>
-
-    <li><p><a asp-action="MedEnf" class="btn btn-primary">Inserir Medico/Enfermeiro</a></p></li>
-
-    <li><p><a asp-action="" class=" btn btn-primary">Gestor de Veiculo</a></p></li>
-
-    <li><p><a asp-action="" class="btn btn-primary">Pedido Medico/Enfermeiro</a></p></li>
-
-    <li><p><a asp-action="" class="btn btn-primary">Pedido Veiculo</a></p></li>
-
-</ul>
 
 
