@@ -1,56 +1,45 @@
-﻿@model Escalonamento.Models.Trocas
+﻿@model Escalonamento.Models.Troca
 
 @{
-    ViewData["Title"] = "Criar Troca";
+    ViewData["Title"] = "Create";
 }
 
-<h2>Criar Troca</h2>
+<h2>Create</h2>
 
+<h4>Troca</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Nome1" class="control-label">Nome do solitador:</label>
+                <label asp-for="Nome1" class="control-label"></label>
                 <input asp-for="Nome1" class="form-control" />
                 <span asp-validation-for="Nome1" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Dia1" class="control-label">Dia:</label>
-                <input asp-for="Dia1" type="date" />
+                <label asp-for="Dia1" class="control-label"></label>
+                <input asp-for="Dia1" class="form-control" />
                 <span asp-validation-for="Dia1" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Turno1" class="control-label">Turno:</label>
-                <select name="Turno">
-
-                    <option>Turno da Manhã</option>
-                    <option>Turno da Tarde</option>
-                    <option>Turno da Noite</option>
-
-                </select>
+                <label asp-for="Turno1" class="control-label"></label>
+                <input asp-for="Turno1" class="form-control" />
                 <span asp-validation-for="Turno1" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Nome2" class="control-label">Nome do solicitado:</label>
+                <label asp-for="Nome2" class="control-label"></label>
                 <input asp-for="Nome2" class="form-control" />
                 <span asp-validation-for="Nome2" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Dia2" class="control-label">Dia:</label>
-                <input asp-for="Dia2" type="date" />
+                <label asp-for="Dia2" class="control-label"></label>
+                <input asp-for="Dia2" class="form-control" />
                 <span asp-validation-for="Dia2" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Turno2" class="control-label">Turno:</label>
-                <select name="Turno">
-
-                    <option>Turno da Manhã</option>
-                    <option>Turno da Tarde</option>
-                    <option>Turno da Noite</option>
-
-                </select>
+                <label asp-for="Turno2" class="control-label"></label>
+                <input asp-for="Turno2" class="form-control" />
                 <span asp-validation-for="Turno2" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -61,6 +50,6 @@
 </div>
 
 <div>
-    <a asp-action="Index">Voltar atrás</a>
+    <a asp-action="Index">Back to List</a>
 </div>
 

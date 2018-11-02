@@ -1,4 +1,4 @@
-﻿@model Escalonamento.Models.Trocas
+﻿@model Escalonamento.Models.Troca
 
 @{
     ViewData["Title"] = "Edit";
@@ -6,13 +6,13 @@
 
 <h2>Edit</h2>
 
-<h4>Trocas</h4>
+<h4>Troca</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="TrocasId" />
+            <input type="hidden" asp-for="TrocaId" />
             <div class="form-group">
                 <label asp-for="Nome1" class="control-label"></label>
                 <input asp-for="Nome1" class="form-control" />

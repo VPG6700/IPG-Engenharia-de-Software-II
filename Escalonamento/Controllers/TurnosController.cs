@@ -9,22 +9,22 @@ using Escalonamento.Models;
 
 namespace Escalonamento.Controllers
 {
-    public class TrocasController : Controller
+    public class TurnosController : Controller
     {
         private readonly EscalonamentoContext _context;
 
-        public TrocasController(EscalonamentoContext context)
+        public TurnosController(EscalonamentoContext context)
         {
             _context = context;
         }
 
-        // GET: Trocas
+        // GET: Turnos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Troca.ToListAsync());
+            return View(await _context.Turno.ToListAsync());
         }
 
-        // GET: Trocas/Details/5
+        // GET: Turnos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -32,39 +32,39 @@ namespace Escalonamento.Controllers
                 return NotFound();
             }
 
-            var troca = await _context.Troca
-                .FirstOrDefaultAsync(m => m.TrocaId == id);
-            if (troca == null)
+            var turno = await _context.Turno
+                .FirstOrDefaultAsync(m => m.TurnoId == id);
+            if (turno == null)
             {
                 return NotFound();
             }
 
-            return View(troca);
+            return View(turno);
         }
 
-        // GET: Trocas/Create
+        // GET: Turnos/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Trocas/Create
+        // POST: Turnos/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TrocaId,Nome1,Dia1,Turno1,Nome2,Dia2,Turno2")] Troca troca)
+        public async Task<IActionResult> Create([Bind("TurnoId")] Turno turno)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(troca);
+                _context.Add(turno);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(troca);
+            return View(turno);
         }
 
-        // GET: Trocas/Edit/5
+        // GET: Turnos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -72,22 +72,22 @@ namespace Escalonamento.Controllers
                 return NotFound();
             }
 
-            var troca = await _context.Troca.FindAsync(id);
-            if (troca == null)
+            var turno = await _context.Turno.FindAsync(id);
+            if (turno == null)
             {
                 return NotFound();
             }
-            return View(troca);
+            return View(turno);
         }
 
-        // POST: Trocas/Edit/5
+        // POST: Turnos/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TrocaId,Nome1,Dia1,Turno1,Nome2,Dia2,Turno2")] Troca troca)
+        public async Task<IActionResult> Edit(int id, [Bind("TurnoId")] Turno turno)
         {
-            if (id != troca.TrocaId)
+            if (id != turno.TurnoId)
             {
                 return NotFound();
             }
@@ -96,12 +96,12 @@ namespace Escalonamento.Controllers
             {
                 try
                 {
-                    _context.Update(troca);
+                    _context.Update(turno);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TrocaExists(troca.TrocaId))
+                    if (!TurnoExists(turno.TurnoId))
                     {
                         return NotFound();
                     }
@@ -112,10 +112,10 @@ namespace Escalonamento.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(troca);
+            return View(turno);
         }
 
-        // GET: Trocas/Delete/5
+        // GET: Turnos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -123,30 +123,30 @@ namespace Escalonamento.Controllers
                 return NotFound();
             }
 
-            var troca = await _context.Troca
-                .FirstOrDefaultAsync(m => m.TrocaId == id);
-            if (troca == null)
+            var turno = await _context.Turno
+                .FirstOrDefaultAsync(m => m.TurnoId == id);
+            if (turno == null)
             {
                 return NotFound();
             }
 
-            return View(troca);
+            return View(turno);
         }
 
-        // POST: Trocas/Delete/5
+        // POST: Turnos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var troca = await _context.Troca.FindAsync(id);
-            _context.Troca.Remove(troca);
+            var turno = await _context.Turno.FindAsync(id);
+            _context.Turno.Remove(turno);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TrocaExists(int id)
+        private bool TurnoExists(int id)
         {
-            return _context.Troca.Any(e => e.TrocaId == id);
+            return _context.Turno.Any(e => e.TurnoId == id);
         }
     }
 }

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Escalonamento.Models
 {
-    public class Trocas
+    public class Troca
     {
-        [Required]
-        public int TrocasId { get; set; }
+        [Key]
+        public int TrocaId { get; set; }
         [Required]
         public string Nome1 { get; set; }
         [Required]

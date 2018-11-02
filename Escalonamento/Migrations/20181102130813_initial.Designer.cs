@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Escalonamento.Migrations
 {
     [DbContext(typeof(EscalonamentoContext))]
-    [Migration("20181030120252_Trocas")]
-    partial class Trocas
+    [Migration("20181102130813_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,9 +44,9 @@ namespace Escalonamento.Migrations
                     b.ToTable("MedEnf");
                 });
 
-            modelBuilder.Entity("Escalonamento.Models.Trocas", b =>
+            modelBuilder.Entity("Escalonamento.Models.Troca", b =>
                 {
-                    b.Property<int>("TrocasId")
+                    b.Property<int>("TrocaId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -66,9 +66,20 @@ namespace Escalonamento.Migrations
                     b.Property<string>("Turno2")
                         .IsRequired();
 
-                    b.HasKey("TrocasId");
+                    b.HasKey("TrocaId");
 
-                    b.ToTable("Trocas");
+                    b.ToTable("Troca");
+                });
+
+            modelBuilder.Entity("Escalonamento.Models.Turno", b =>
+                {
+                    b.Property<int>("TurnoId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.HasKey("TurnoId");
+
+                    b.ToTable("Turno");
                 });
 #pragma warning restore 612, 618
         }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Escalonamento.Migrations
 {
     [DbContext(typeof(EscalonamentoContext))]
-    [Migration("20181018164605_initial")]
-    partial class initial
+    [Migration("20181102131246_troca")]
+    partial class troca
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,7 +29,8 @@ namespace Escalonamento.Migrations
 
                     b.Property<DateTime>("DataNasc");
 
-                    b.Property<string>("Funcao");
+                    b.Property<string>("Funcao")
+                        .IsRequired();
 
                     b.Property<string>("Nome")
                         .IsRequired();
@@ -41,6 +42,44 @@ namespace Escalonamento.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("MedEnf");
+                });
+
+            modelBuilder.Entity("Escalonamento.Models.Troca", b =>
+                {
+                    b.Property<int>("TrocaId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Dia1");
+
+                    b.Property<int>("Dia2");
+
+                    b.Property<string>("Nome1")
+                        .IsRequired();
+
+                    b.Property<string>("Nome2")
+                        .IsRequired();
+
+                    b.Property<string>("Turno1")
+                        .IsRequired();
+
+                    b.Property<string>("Turno2")
+                        .IsRequired();
+
+                    b.HasKey("TrocaId");
+
+                    b.ToTable("Troca");
+                });
+
+            modelBuilder.Entity("Escalonamento.Models.Turno", b =>
+                {
+                    b.Property<int>("TurnoId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.HasKey("TurnoId");
+
+                    b.ToTable("Turno");
                 });
 #pragma warning restore 612, 618
         }

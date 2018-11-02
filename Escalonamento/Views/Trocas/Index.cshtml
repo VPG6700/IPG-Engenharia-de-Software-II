@@ -1,45 +1,36 @@
-﻿@model IEnumerable<Escalonamento.Models.Trocas>
+﻿@model IEnumerable<Escalonamento.Models.Troca>
 
 @{
-    ViewData["Title"] = "Pedidos de Trocas";
+    ViewData["Title"] = "Index";
 }
 
-<h2>Pedidos de Trocas</h2>
+<h2>Index</h2>
 
 <p>
-    <a asp-action="Create">Criar novo pedido</a>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                Nome do solicitador:
+                @Html.DisplayNameFor(model => model.Nome1)
             </th>
-        </tr>
-        <tr>
             <th>
-                Dia:
+                @Html.DisplayNameFor(model => model.Dia1)
             </th>
-        </tr>
-        <tr>
             <th>
-                Turno:
+                @Html.DisplayNameFor(model => model.Turno1)
             </th>
-        </tr>
-        <tr>
             <th>
-                Nome do solicitado:
+                @Html.DisplayNameFor(model => model.Nome2)
             </th>
-        </tr>
-        <tr>
             <th>
-                Dia:
+                @Html.DisplayNameFor(model => model.Dia2)
             </th>
-        </tr>
-        <tr>
             <th>
-                Turno:
+                @Html.DisplayNameFor(model => model.Turno2)
             </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -64,9 +55,9 @@
                 @Html.DisplayFor(modelItem => item.Turno2)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.TrocasId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TrocasId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TrocasId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.TrocaId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TrocaId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TrocaId">Delete</a>
             </td>
         </tr>
 }
