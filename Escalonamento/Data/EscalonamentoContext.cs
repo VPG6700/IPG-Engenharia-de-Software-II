@@ -17,5 +17,7 @@ namespace Escalonamento.Models
         public DbSet<Escalonamento.Models.MedEnf> MedEnf { get; set; }
 
         public DbSet<Escalonamento.Models.Trocas> Trocas { get; set; }
+
+        public DbSet<Escalonamento.Models.Veiculos> Veiculos { get; set; }
     }
 }
