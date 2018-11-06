@@ -11,7 +11,7 @@ namespace Escalonamento.Models
         [Required]
         public int Id{ get; set; }
         [Required]
-        public int NumMatricula { get; set; }
+        public String NumMatricula { get; set; }
         [Required]
         public string Marca{ get; set; }
    

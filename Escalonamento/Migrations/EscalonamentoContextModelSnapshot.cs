@@ -80,7 +80,7 @@ namespace Escalonamento.Migrations
                     b.Property<string>("Marca")
                         .IsRequired();
 
-                    b.Property<int>("NumMatricula");
+                    b.Property<String>("NumMatricula");
 
                     b.HasKey("Id");
 

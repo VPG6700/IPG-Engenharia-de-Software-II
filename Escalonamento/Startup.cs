@@ -63,6 +63,7 @@ namespace Escalonamento
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            SeedDataVeiculos.Polular(app.ApplicationServices);
         }
     }
 }
