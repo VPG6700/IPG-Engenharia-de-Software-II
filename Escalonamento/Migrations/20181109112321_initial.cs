@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Escalonamento.Migrations
@@ -14,10 +15,10 @@ namespace Escalonamento.Migrations
                     TrocasId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Nome1 = table.Column<string>(nullable: false),
-                    Dia1 = table.Column<int>(nullable: false),
+                    Dia1 = table.Column<DateTime>(nullable: false),
                     Turno1 = table.Column<string>(nullable: false),
                     Nome2 = table.Column<string>(nullable: false),
-                    Dia2 = table.Column<int>(nullable: false),
+                    Dia2 = table.Column<DateTime>(nullable: false),
                     Turno2 = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
