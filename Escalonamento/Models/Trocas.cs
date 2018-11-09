@@ -8,29 +8,29 @@ namespace Escalonamento.Models
 {
     public class Trocas
     {
-        [Required]
+        
         [Key]
         public int TrocasId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Digite o nome")]
         public string Nome1 { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Selecione o dia")]
         [DataType(DataType.DateTime)]
         public DateTime Dia1 { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Selecione o turno")]
         public string Turno1 { get; set; }
         
 
-        [Required]
+        [Required(ErrorMessage = "Digite o nome")]
         public string Nome2 { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Selecione o dia")]
         [DataType(DataType.DateTime)]
         public DateTime Dia2 { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Selecione o turno")]
         public string Turno2 { get; set; }
 
     }

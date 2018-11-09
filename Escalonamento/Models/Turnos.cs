@@ -10,12 +10,12 @@ namespace Escalonamento.Models
     {
         [Key]
         public int IdTurnos { get; set; }
+        public string Turno { get; set; }
+        
+       
 
-        public string TurnoManha { get; set; }
 
-        public string TurnoTarde { get; set; }
 
-        public string TurnoNoite { get; set; }
 
     }
 }
