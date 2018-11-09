@@ -9,18 +9,29 @@ namespace Escalonamento.Models
     public class Trocas
     {
         [Required]
+        [Key]
         public int TrocasId { get; set; }
+
         [Required]
         public string Nome1 { get; set; }
+
         [Required]
-        public int Dia1 { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime Dia1 { get; set; }
+
         [Required]
-        public string Turno1 { get; set; }
+        public Turnos Turno1 { get; set; }
+        public int IdTurnos { get; set; }
+
         [Required]
         public string Nome2 { get; set; }
+
         [Required]
-        public int Dia2 { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime Dia2 { get; set; }
+
         [Required]
-        public string Turno2 { get; set; }
+        public Turnos Turno2 { get; set; }
+
     }
 }

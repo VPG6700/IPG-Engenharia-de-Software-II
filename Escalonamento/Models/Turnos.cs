@@ -16,5 +16,7 @@ namespace Escalonamento.Models
         public string TurnoTarde { get; set; }
 
         public string TurnoNoite { get; set; }
+
+        public ICollection<Trocas> Trocas { get; set; }
     }
 }
