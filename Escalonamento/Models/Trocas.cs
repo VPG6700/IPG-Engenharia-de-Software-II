@@ -20,8 +20,8 @@ namespace Escalonamento.Models
         public DateTime Dia1 { get; set; }
 
         [Required]
-        public Turnos Turno1 { get; set; }
-        public int IdTurnos { get; set; }
+        public string Turno1 { get; set; }
+        
 
         [Required]
         public string Nome2 { get; set; }
@@ -31,7 +31,7 @@ namespace Escalonamento.Models
         public DateTime Dia2 { get; set; }
 
         [Required]
-        public Turnos Turno2 { get; set; }
+        public string Turno2 { get; set; }
 
     }
 }
