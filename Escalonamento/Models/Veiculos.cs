@@ -12,9 +12,10 @@ namespace Escalonamento.Models
         [Required]
         public int VeiculosId { get; set; }
         [Required]
-        public string NumMatricula { get; set; }
-        [Required]
         public string Marca { get; set; }
+        [Required]
+        public string NumMatricula { get; set; }
+       
         [Required]
         public string Disponibilidade { get; set; }
     }
