@@ -14,8 +14,8 @@ namespace Escalonamento.Models
         [Required]
         public string NumMatricula { get; set; }
         [Required]
-        public String Marca { get; set; }
+        public string Marca { get; set; }
         [Required]
-        public String Disponibilidade { get; set; }
+        public string Disponibilidade { get; set; }
     }
 }

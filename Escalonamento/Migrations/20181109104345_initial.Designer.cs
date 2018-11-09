@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Escalonamento.Migrations
 {
     [DbContext(typeof(EscalonamentoContext))]
-    [Migration("20181109093605_initial")]
+    [Migration("20181109104345_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,11 +49,12 @@ namespace Escalonamento.Migrations
 
             modelBuilder.Entity("Escalonamento.Models.Veiculos", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("VeiculosId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Disponibilidade");
+                    b.Property<string>("Disponibilidade")
+                        .IsRequired();
 
                     b.Property<string>("Marca")
                         .IsRequired();
@@ -61,7 +62,7 @@ namespace Escalonamento.Migrations
                     b.Property<string>("NumMatricula")
                         .IsRequired();
 
-                    b.HasKey("Id");
+                    b.HasKey("VeiculosId");
 
                     b.ToTable("Veiculos");
                 });

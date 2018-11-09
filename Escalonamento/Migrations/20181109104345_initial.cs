@@ -29,15 +29,15 @@ namespace Escalonamento.Migrations
                 name: "Veiculos",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    VeiculosId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     NumMatricula = table.Column<string>(nullable: false),
                     Marca = table.Column<string>(nullable: false),
-                    Disponibilidade = table.Column<string>(nullable: true)
+                    Disponibilidade = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Veiculos", x => x.Id);
+                    table.PrimaryKey("PK_Veiculos", x => x.VeiculosId);
                 });
         }
 

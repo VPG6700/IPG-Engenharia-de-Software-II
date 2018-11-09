@@ -51,7 +51,8 @@ namespace Escalonamento.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Disponibilidade");
+                    b.Property<string>("Disponibilidade")
+                        .IsRequired();
 
                     b.Property<string>("Marca")
                         .IsRequired();
@@ -59,7 +60,7 @@ namespace Escalonamento.Migrations
                     b.Property<string>("NumMatricula")
                         .IsRequired();
 
-                    b.HasKey("Id");
+                    b.HasKey("VeiculosId");
 
                     b.ToTable("Veiculos");
                 });
