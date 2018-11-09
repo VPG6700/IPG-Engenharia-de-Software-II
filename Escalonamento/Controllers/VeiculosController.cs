@@ -33,7 +33,7 @@ namespace Escalonamento.Controllers
             }
 
             var veiculos = await _context.Veiculos
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.VeiculosId == id);
             if (veiculos == null)
             {
                 return NotFound();
@@ -53,7 +53,7 @@ namespace Escalonamento.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NumMatricula,Marca,Disponibilidade")] Veiculos veiculos)
+        public async Task<IActionResult> Create([Bind("VeiculosId,NumMatricula,Marca,Disponibilidade")] Veiculos veiculos)
         {
             if (ModelState.IsValid)
             {
@@ -85,9 +85,9 @@ namespace Escalonamento.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NumMatricula,Marca,Disponibilidade")] Veiculos veiculos)
+        public async Task<IActionResult> Edit(int id, [Bind("VeiculosId,NumMatricula,Marca,Disponibilidade")] Veiculos veiculos)
         {
-            if (id != veiculos.Id)
+            if (id != veiculos.VeiculosId)
             {
                 return NotFound();
             }
@@ -101,7 +101,7 @@ namespace Escalonamento.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!VeiculosExists(veiculos.Id))
+                    if (!VeiculosExists(veiculos.VeiculosId))
                     {
                         return NotFound();
                     }
@@ -124,7 +124,7 @@ namespace Escalonamento.Controllers
             }
 
             var veiculos = await _context.Veiculos
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.VeiculosId == id);
             if (veiculos == null)
             {
                 return NotFound();
@@ -146,7 +146,7 @@ namespace Escalonamento.Controllers
 
         private bool VeiculosExists(int id)
         {
-            return _context.Veiculos.Any(e => e.Id == id);
+            return _context.Veiculos.Any(e => e.VeiculosId == id);
         }
     }
 }

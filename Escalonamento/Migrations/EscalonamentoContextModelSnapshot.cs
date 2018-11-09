@@ -47,7 +47,7 @@ namespace Escalonamento.Migrations
 
             modelBuilder.Entity("Escalonamento.Models.Veiculos", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("VeiculosId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 

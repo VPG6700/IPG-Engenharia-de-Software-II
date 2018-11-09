@@ -8,13 +8,14 @@ namespace Escalonamento.Models
 {
     public class Veiculos
     {
+
         [Required]
-        public int Id{ get; set; }
+        public int VeiculosId { get; set; }
         [Required]
-        public String NumMatricula { get; set; }
+        public string NumMatricula { get; set; }
         [Required]
-        public string Marca{ get; set; }
-   
-        public string Disponibilidade { get; set; }
+        public String Marca { get; set; }
+        [Required]
+        public String Disponibilidade { get; set; }
     }
 }
