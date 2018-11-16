@@ -22,7 +22,8 @@ namespace Escalonamento.Models
                      new Veiculos {  NumMatricula = "00.10.RO", Marca = "TOYOTA", Disponibilidade = "ativo" }
 
                      );
-                db.SaveChanges();
+                db.SaveChanges();
+
             }
         }
 

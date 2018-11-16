@@ -7,7 +7,7 @@
 <h2>Lista de Veiculos </h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Criar Novo</a>
 </p>
 <table class="table">
     <thead>
@@ -37,9 +37,9 @@
                 @Html.DisplayFor(modelItem => item.Disponibilidade)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.VeiculosId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.VeiculosId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.VeiculosId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.VeiculosId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.VeiculosId">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.VeiculosId">Eliminar</a>
             </td>
         </tr>
 }
