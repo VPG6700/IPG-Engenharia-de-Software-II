@@ -9,6 +9,21 @@ namespace Escalonamento.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "EscalonamentoHorario",
+                columns: table => new
+                {
+                    EscalonamentoHorarioId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Gerar = table.Column<string>(nullable: false),
+                    Visualizar = table.Column<string>(nullable: false),
+                    Imprimir = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EscalonamentoHorario", x => x.EscalonamentoHorarioId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Trocas",
                 columns: table => new
                 {
@@ -32,8 +47,8 @@ namespace Escalonamento.Migrations
                 {
                     VeiculosId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    NumMatricula = table.Column<string>(nullable: false),
                     Marca = table.Column<string>(nullable: false),
+                    NumMatricula = table.Column<string>(nullable: false),
                     Disponibilidade = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
@@ -44,6 +59,9 @@ namespace Escalonamento.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "EscalonamentoHorario");
+
             migrationBuilder.DropTable(
                 name: "Trocas");
 

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Escalonamento.Migrations
 {
     [DbContext(typeof(EscalonamentoContext))]
-    [Migration("20181109112321_initial")]
+    [Migration("20181116112508_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,26 @@ namespace Escalonamento.Migrations
                 .HasAnnotation("ProductVersion", "2.1.3-rtm-32065")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Escalonamento.Models.EscalonamentoHorario", b =>
+                {
+                    b.Property<int>("EscalonamentoHorarioId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Gerar")
+                        .IsRequired();
+
+                    b.Property<string>("Imprimir")
+                        .IsRequired();
+
+                    b.Property<string>("Visualizar")
+                        .IsRequired();
+
+                    b.HasKey("EscalonamentoHorarioId");
+
+                    b.ToTable("EscalonamentoHorario");
+                });
 
             modelBuilder.Entity("Escalonamento.Models.Trocas", b =>
                 {

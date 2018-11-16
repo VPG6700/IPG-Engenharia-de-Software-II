@@ -19,6 +19,26 @@ namespace Escalonamento.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Escalonamento.Models.EscalonamentoHorario", b =>
+                {
+                    b.Property<int>("EscalonamentoHorarioId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Gerar")
+                        .IsRequired();
+
+                    b.Property<string>("Imprimir")
+                        .IsRequired();
+
+                    b.Property<string>("Visualizar")
+                        .IsRequired();
+
+                    b.HasKey("EscalonamentoHorarioId");
+
+                    b.ToTable("EscalonamentoHorario");
+                });
+
             modelBuilder.Entity("Escalonamento.Models.Trocas", b =>
                 {
                     b.Property<int>("TrocasId")
