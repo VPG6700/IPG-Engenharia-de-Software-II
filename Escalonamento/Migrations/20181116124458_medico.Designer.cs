@@ -4,14 +4,16 @@ using Escalonamento.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Escalonamento.Migrations
 {
     [DbContext(typeof(EscalonamentoContext))]
-    partial class EscalonamentoContextModelSnapshot : ModelSnapshot
+    [Migration("20181116124458_medico")]
+    partial class medico
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,26 +39,6 @@ namespace Escalonamento.Migrations
                     b.HasKey("EscalonamentoHorarioId");
 
                     b.ToTable("EscalonamentoHorario");
-                });
-
-            modelBuilder.Entity("Escalonamento.Models.medico", b =>
-                {
-                    b.Property<int>("MedicoID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Disponibilidade")
-                        .IsRequired();
-
-                    b.Property<string>("Nome")
-                        .IsRequired();
-
-                    b.Property<string>("NumMatricula")
-                        .IsRequired();
-
-                    b.HasKey("MedicoID");
-
-                    b.ToTable("medico");
                 });
 
             modelBuilder.Entity("Escalonamento.Models.Trocas", b =>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Escalonamento.Models.medico>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumMatricula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Disponibilidade)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumMatricula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Disponibilidade)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MedicoID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MedicoID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MedicoID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
