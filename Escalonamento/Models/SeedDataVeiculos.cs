@@ -17,9 +17,9 @@ namespace Escalonamento.Models
                 if (db.Veiculos.Any()) return;
 
                 db.Veiculos.AddRange(
-                    new Veiculos {  NumMatricula = "25.33.XQ", Marca = "Mercedes_Bens", Disponibilidade = "ativo" },
-                    new Veiculos { NumMatricula = "56.00.TQ", Marca = "Mercedes_Bens", Disponibilidade = "ativo" },
-                     new Veiculos {  NumMatricula = "00.10.RO", Marca = "TOYOTA", Disponibilidade = "ativo" }
+                    new Veiculos {  Marca = "Mercedes_Bens",NumMatricula = "25-33-XQ",  Disponibilidade = "ativo" },
+                    new Veiculos {Marca = "Mercedes_Bens", NumMatricula = "56-00-TQ",  Disponibilidade = "ativo" },
+                     new Veiculos {  Marca = "TOYOTA", NumMatricula = "00-10-RO", Disponibilidade = "ativo" }
 
                      );
                 db.SaveChanges();
