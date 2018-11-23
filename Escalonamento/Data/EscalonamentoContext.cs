@@ -20,8 +20,7 @@ namespace Escalonamento.Models
 
         public DbSet<Escalonamento.Models.Veiculos> Veiculos { get; set; }
 
-        public DbSet<Escalonamento.Models.EscalonamentoHorario> EscalonamentoHorario { get; set; }
-
+       
         public DbSet<Escalonamento.Models.medico> medico { get; set; }
        
     }

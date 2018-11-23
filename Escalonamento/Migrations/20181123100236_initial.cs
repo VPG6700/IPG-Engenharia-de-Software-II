@@ -9,18 +9,18 @@ namespace Escalonamento.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "EscalonamentoHorario",
+                name: "medico",
                 columns: table => new
                 {
-                    EscalonamentoHorarioId = table.Column<int>(nullable: false)
+                    MedicoID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Gerar = table.Column<string>(nullable: false),
-                    Visualizar = table.Column<string>(nullable: false),
-                    Imprimir = table.Column<string>(nullable: false)
+                    Nome = table.Column<string>(nullable: false),
+                    NumMatricula = table.Column<string>(nullable: false),
+                    Disponibilidade = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EscalonamentoHorario", x => x.EscalonamentoHorarioId);
+                    table.PrimaryKey("PK_medico", x => x.MedicoID);
                 });
 
             migrationBuilder.CreateTable(
@@ -49,7 +49,7 @@ namespace Escalonamento.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Marca = table.Column<string>(nullable: false),
                     NumMatricula = table.Column<string>(nullable: false),
-                    Disponibilidade = table.Column<string>(nullable: false)
+                    Disponibilidade = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -60,7 +60,7 @@ namespace Escalonamento.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "EscalonamentoHorario");
+                name: "medico");
 
             migrationBuilder.DropTable(
                 name: "Trocas");

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Escalonamento.Migrations
 {
     [DbContext(typeof(EscalonamentoContext))]
-    [Migration("20181116112508_initial")]
+    [Migration("20181123100236_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,24 +21,24 @@ namespace Escalonamento.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Escalonamento.Models.EscalonamentoHorario", b =>
+            modelBuilder.Entity("Escalonamento.Models.medico", b =>
                 {
-                    b.Property<int>("EscalonamentoHorarioId")
+                    b.Property<int>("MedicoID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Gerar")
+                    b.Property<string>("Disponibilidade")
                         .IsRequired();
 
-                    b.Property<string>("Imprimir")
+                    b.Property<string>("Nome")
                         .IsRequired();
 
-                    b.Property<string>("Visualizar")
+                    b.Property<string>("NumMatricula")
                         .IsRequired();
 
-                    b.HasKey("EscalonamentoHorarioId");
+                    b.HasKey("MedicoID");
 
-                    b.ToTable("EscalonamentoHorario");
+                    b.ToTable("medico");
                 });
 
             modelBuilder.Entity("Escalonamento.Models.Trocas", b =>
@@ -74,8 +74,7 @@ namespace Escalonamento.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Disponibilidade")
-                        .IsRequired();
+                    b.Property<bool>("Disponibilidade");
 
                     b.Property<string>("Marca")
                         .IsRequired();

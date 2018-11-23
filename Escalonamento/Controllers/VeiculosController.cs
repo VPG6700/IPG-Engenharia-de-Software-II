@@ -53,7 +53,7 @@ namespace Escalonamento.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("VeiculosId,NumMatricula,Marca,Disponibilidade")] Veiculos veiculos)
+        public async Task<IActionResult> Create([Bind("VeiculosId,Marca,NumMatricula,Disponibilidade")] Veiculos veiculos)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace Escalonamento.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("VeiculosId,NumMatricula,Marca,Disponibilidade")] Veiculos veiculos)
+        public async Task<IActionResult> Edit(int id, [Bind("VeiculosId,Marca,NumMatricula,Disponibilidade")] Veiculos veiculos)
         {
             if (id != veiculos.VeiculosId)
             {
