@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Escalonamento.Models;
+using Escalonamento.Data;
 
 namespace Escalonamento
 {
@@ -41,10 +42,13 @@ namespace Escalonamento
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, EscalonamentoContext db)
         {
+         
             if (env.IsDevelopment())
             {
+
+                SeedData.Populate(db);
                 app.UseDeveloperExceptionPage();
             }
             else
@@ -63,7 +67,7 @@ namespace Escalonamento
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-            SeedDataVeiculos.Polular(app.ApplicationServices);
+       
         }
     }
 }
