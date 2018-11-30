@@ -12,11 +12,11 @@ namespace Escalonamento.Models
         [Key]
         public int ModeloId { get; set; }
         [Required(ErrorMessage = "Introduza o nome do modelo")]
-        [RegularExpression(@"[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:]", ErrorMessage = "Nome Inválido")]
+        //[RegularExpression(@"[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:]", ErrorMessage = "Nome Inválido")]
         public string Nome { get; set; }
         [Required(ErrorMessage = "Introduza o ano do modelo")]
         [RegularExpression(@"(20\d{2})", ErrorMessage = "Ano Inválido")]
-        public DateTime Ano { get; set; }
+        public int Ano { get; set; }
 
 
         [Required(ErrorMessage = "Introduza a marca do modelo")]

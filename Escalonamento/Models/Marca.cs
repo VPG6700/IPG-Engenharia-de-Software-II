@@ -12,7 +12,7 @@ namespace Escalonamento.Models
         [Key]
         public int MarcaId { get; set; }
         [Required(ErrorMessage = "Introduza o nome da marca")]
-        [RegularExpression(@"[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:]", ErrorMessage = "Nome Inválido")]
+        //[RegularExpression(@"[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:]", ErrorMessage = "Nome Inválido")]
         public string Nome { get; set; }
 
 

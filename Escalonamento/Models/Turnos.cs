@@ -9,13 +9,13 @@ namespace Escalonamento.Models
     public class Turnos
     {
         [Key]
-        public int IdTurnos { get; set; }
-        public string Turno { get; set; }
-        
-       
+        public int TurnosId { get; set; }
+        public string Nome { get; set; }
 
-
-
+        [DataType(DataType.DateTime)]
+        public DateTime HoraInicio { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime HoraFim { get; set; }
 
     }
 }
