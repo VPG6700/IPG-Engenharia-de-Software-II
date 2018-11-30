@@ -1,19 +1,22 @@
 ﻿@model IEnumerable<Escalonamento.Models.Marca>
 
 @{
-    ViewData["Title"] = "Marcas";
+    ViewData["Title"] = "Marca";
 }
 
-<h2>Marcas</h2>
+<h2>Marca</h2>
 
 <p>
-    <a asp-action="Create">Criar novo</a>
+    <a asp-action="Create">Criar Marca</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modelo)
             </th>
             <th></th>
         </tr>
@@ -23,6 +26,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modelo)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.MarcaId">Editar</a> |

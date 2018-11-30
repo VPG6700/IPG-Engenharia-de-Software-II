@@ -6,7 +6,7 @@
 
 <h2>Apagar</h2>
 
-<h3>Deseja mesmo apagar a marca?</h3>
+<h3>Tem a certeza que deseja apagar esta marca?</h3>
 <div>
     <h4>Marca</h4>
     <hr />
@@ -16,6 +16,24 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Modelo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ano)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ano)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Especificacoes)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Especificacoes)
         </dd>
     </dl>
     

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Escalonamento.Migrations
 {
     [DbContext(typeof(EscalonamentoContext))]
-    [Migration("20181128171325_marca")]
-    partial class marca
+    [Migration("20181130165244_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,6 +26,13 @@ namespace Escalonamento.Migrations
                     b.Property<int>("MarcaId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Ano");
+
+                    b.Property<string>("Especificacoes");
+
+                    b.Property<string>("Modelo")
+                        .IsRequired();
 
                     b.Property<string>("Nome")
                         .IsRequired();
@@ -53,26 +60,6 @@ namespace Escalonamento.Migrations
                     b.HasKey("MedicoID");
 
                     b.ToTable("medico");
-                });
-
-            modelBuilder.Entity("Escalonamento.Models.Modelo", b =>
-                {
-                    b.Property<int>("ModeloId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("Ano");
-
-                    b.Property<int>("MarcaId");
-
-                    b.Property<string>("Nome")
-                        .IsRequired();
-
-                    b.HasKey("ModeloId");
-
-                    b.HasIndex("MarcaId");
-
-                    b.ToTable("Modelo");
                 });
 
             modelBuilder.Entity("Escalonamento.Models.Trocas", b =>
@@ -119,14 +106,6 @@ namespace Escalonamento.Migrations
                     b.HasKey("VeiculosId");
 
                     b.ToTable("Veiculos");
-                });
-
-            modelBuilder.Entity("Escalonamento.Models.Modelo", b =>
-                {
-                    b.HasOne("Escalonamento.Models.Marca", "Marca")
-                        .WithMany()
-                        .HasForeignKey("MarcaId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

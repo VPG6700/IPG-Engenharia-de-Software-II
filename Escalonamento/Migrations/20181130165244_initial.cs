@@ -9,6 +9,22 @@ namespace Escalonamento.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Marca",
+                columns: table => new
+                {
+                    MarcaId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Nome = table.Column<string>(nullable: false),
+                    Modelo = table.Column<string>(nullable: false),
+                    Ano = table.Column<int>(nullable: false),
+                    Especificacoes = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Marca", x => x.MarcaId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "medico",
                 columns: table => new
                 {
@@ -59,6 +75,9 @@ namespace Escalonamento.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Marca");
+
             migrationBuilder.DropTable(
                 name: "medico");
 
