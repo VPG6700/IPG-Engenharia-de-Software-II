@@ -11,19 +11,11 @@ namespace Escalonamento.Models
         [Key]
         public int MarcaId { get; set; }
 
-        [Required(ErrorMessage = "Introduza o nome da marca")]
-        [RegularExpression(@"([A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ\s]+)", ErrorMessage = "Nome Inválido")]
+        [Required(ErrorMessage = "Introduza o nome do veículo")]
+        //[RegularExpression(@"([A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ\s]+)", ErrorMessage = "Nome Inválido")]
         public string Nome { get; set; }
 
-        [Required(ErrorMessage = "Introduza o nome do modelo")]
-        public string Modelo { get; set; }
-
-        [Required(ErrorMessage = "Introduza o ano do modelo")]
-        public int Ano { get; set; }
-
-        public string Especificacoes { get; set; }
-
-
+       
     }
 }
 

@@ -14,10 +14,7 @@ namespace Escalonamento.Migrations
                 {
                     MarcaId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Nome = table.Column<string>(nullable: false),
-                    Modelo = table.Column<string>(nullable: false),
-                    Ano = table.Column<int>(nullable: false),
-                    Especificacoes = table.Column<string>(nullable: true)
+                    Nome = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

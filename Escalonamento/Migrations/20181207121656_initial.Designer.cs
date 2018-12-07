@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Escalonamento.Migrations
 {
     [DbContext(typeof(EscalonamentoContext))]
-    [Migration("20181130165244_initial")]
+    [Migration("20181207121656_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,13 +26,6 @@ namespace Escalonamento.Migrations
                     b.Property<int>("MarcaId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Ano");
-
-                    b.Property<string>("Especificacoes");
-
-                    b.Property<string>("Modelo")
-                        .IsRequired();
 
                     b.Property<string>("Nome")
                         .IsRequired();

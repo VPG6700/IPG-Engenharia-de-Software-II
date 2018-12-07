@@ -42,13 +42,12 @@ namespace Escalonamento
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, EscalonamentoContext db)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-         
+            SeedData.Populate(app.ApplicationServices);
+
             if (env.IsDevelopment())
             {
-
-                SeedData.Populate(db);
                 app.UseDeveloperExceptionPage();
             }
             else

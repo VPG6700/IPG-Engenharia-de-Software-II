@@ -25,13 +25,6 @@ namespace Escalonamento.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Ano");
-
-                    b.Property<string>("Especificacoes");
-
-                    b.Property<string>("Modelo")
-                        .IsRequired();
-
                     b.Property<string>("Nome")
                         .IsRequired();
 

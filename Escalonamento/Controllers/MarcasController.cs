@@ -11,6 +11,7 @@ namespace Escalonamento.Controllers
 {
     public class MarcasController : Controller
     {
+        private const int PAGE_SIZE = 5;
         private readonly EscalonamentoContext _context;
 
         public MarcasController(EscalonamentoContext context)
@@ -18,10 +19,45 @@ namespace Escalonamento.Controllers
             _context = context;
         }
 
+
         // GET: Marcas
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(MarcaViewModel model = null, int page = 1)
         {
-            return View(await _context.Marca.ToListAsync());
+            string nome = null;
+
+            if (model != null && model.CurrentModel != null)
+            {
+                nome = model.CurrentModel;
+                page = 1;
+            }
+
+            var marcas = _context.Marca.Where(p => nome == null || p.Nome.Contains(nome));
+
+            int numMarcas = await marcas.CountAsync();
+
+            if (page > (numMarcas / PAGE_SIZE) + 1)
+            {
+                page = 1;
+            }
+
+            var marcasList = await marcas
+                    .OrderBy(p => p.Nome)
+                    .Skip(PAGE_SIZE * (page - 1))
+                    .Take(PAGE_SIZE)
+                    .ToListAsync();
+
+            return View( new MarcaViewModel
+                {
+                    Marcas = marcasList,
+                    Pagination = new PagingViewModel
+                    {
+                        CurrentPage = page,
+                        PageSize = PAGE_SIZE,
+                        Totaltems = numMarcas
+                    },
+                    CurrentModel = nome 
+                }
+            );
         }
 
         // GET: Marcas/Details/5
@@ -29,7 +65,8 @@ namespace Escalonamento.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction("Index");
+                //return NotFound();
             }
 
             var marca = await _context.Marca
