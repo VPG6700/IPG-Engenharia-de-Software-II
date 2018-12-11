@@ -9,22 +9,22 @@ using Escalonamento.Models;
 
 namespace Escalonamento.Controllers
 {
-    public class VeiculosController : Controller
+    public class VeiculoController : Controller
     {
         private readonly EscalonamentoContext _context;
 
-        public VeiculosController(EscalonamentoContext context)
+        public VeiculoController(EscalonamentoContext context)
         {
             _context = context;
         }
 
-        // GET: Veiculos
+        // GET: Veiculo
         public async Task<IActionResult> Index()
         {
             return View(await _context.Veiculos.ToListAsync());
         }
 
-        // GET: Veiculos/Details/5
+        // GET: Veiculo/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -42,18 +42,19 @@ namespace Escalonamento.Controllers
             return View(veiculos);
         }
 
-        // GET: Veiculos/Create
+        // GET: Veiculo/Create
         public IActionResult Create()
         {
+            ViewData["Marca"] = new SelectList(_context.Marca, "MarcaId", "Nome");
             return View();
         }
 
-        // POST: Veiculos/Create
+        // POST: Veiculo/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("VeiculosId,Marca,NumMatricula,Disponibilidade")] Veiculos veiculos)
+        public async Task<IActionResult> Create([Bind("VeiculosId,MarcaId,NumMatricula,Disponibilidade")] Veiculos veiculos)
         {
             if (ModelState.IsValid)
             {
@@ -61,10 +62,11 @@ namespace Escalonamento.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["Marca"] = new SelectList(_context.Marca, "MarcaId", "Nome", veiculos.MarcaId);
             return View(veiculos);
         }
 
-        // GET: Veiculos/Edit/5
+        // GET: Veiculo/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -77,15 +79,16 @@ namespace Escalonamento.Controllers
             {
                 return NotFound();
             }
+            ViewData["Marca"] = new SelectList(_context.Marca, "MarcaId", "Nome");
             return View(veiculos);
         }
 
-        // POST: Veiculos/Edit/5
+        // POST: Veiculo/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("VeiculosId,Marca,NumMatricula,Disponibilidade")] Veiculos veiculos)
+        public async Task<IActionResult> Edit(int id, [Bind("VeiculosId,MarcaId,NumMatricula,Disponibilidade")] Veiculos veiculos)
         {
             if (id != veiculos.VeiculosId)
             {
@@ -112,10 +115,11 @@ namespace Escalonamento.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["Marca"] = new SelectList(_context.Marca, "MarcaId", "Nome", veiculos.MarcaId);
             return View(veiculos);
         }
 
-        // GET: Veiculos/Delete/5
+        // GET: Veiculo/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -133,7 +137,7 @@ namespace Escalonamento.Controllers
             return View(veiculos);
         }
 
-        // POST: Veiculos/Delete/5
+        // POST: Veiculo/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

@@ -15,17 +15,7 @@ namespace Escalonamento.Data
             (var serviceScope = applicationServices.CreateScope())
             {
                 var db = serviceScope.ServiceProvider.GetService<EscalonamentoContext>();
-                if (!db.Veiculos.Any())
-                {
-                    db.Veiculos.AddRange
-                        (new Veiculos { Marca = "Mercedes_Bens", NumMatricula = "25-33-XQ", Disponibilidade = true },
-                        new Veiculos { Marca = "Mercedes_Bens", NumMatricula = "56-00-TQ", Disponibilidade = true },
-                        new Veiculos { Marca = "TOYOTA", NumMatricula = "00-10-RO", Disponibilidade = false }
-
-                    );
-                }
-                db.SaveChanges();
-
+                
                 if (!db.Marca.Any())
                 {
                     db.Marca.AddRange
@@ -39,6 +29,8 @@ namespace Escalonamento.Data
                     );
                 }
                 db.SaveChanges();
+
+                
             }
         }
     }

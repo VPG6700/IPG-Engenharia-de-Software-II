@@ -25,6 +25,9 @@ namespace Escalonamento.Models
 
        
         public DbSet<Escalonamento.Models.Marca> Marca { get; set; }
+
+       
+        public DbSet<Escalonamento.Models.Turno> Turno { get; set; }
        
     }
 }

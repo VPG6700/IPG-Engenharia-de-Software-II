@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Escalonamento.Migrations
 {
     [DbContext(typeof(EscalonamentoContext))]
-    [Migration("20181207121656_initial")]
+    [Migration("20181211130900_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -82,6 +82,23 @@ namespace Escalonamento.Migrations
                     b.ToTable("Trocas");
                 });
 
+            modelBuilder.Entity("Escalonamento.Models.Turno", b =>
+                {
+                    b.Property<int>("TurnoId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("HoraFim");
+
+                    b.Property<DateTime>("HoraInicio");
+
+                    b.Property<string>("Nome");
+
+                    b.HasKey("TurnoId");
+
+                    b.ToTable("Turno");
+                });
+
             modelBuilder.Entity("Escalonamento.Models.Veiculos", b =>
                 {
                     b.Property<int>("VeiculosId")
@@ -90,15 +107,24 @@ namespace Escalonamento.Migrations
 
                     b.Property<bool>("Disponibilidade");
 
-                    b.Property<string>("Marca")
-                        .IsRequired();
+                    b.Property<int>("MarcaId");
 
                     b.Property<string>("NumMatricula")
                         .IsRequired();
 
                     b.HasKey("VeiculosId");
 
+                    b.HasIndex("MarcaId");
+
                     b.ToTable("Veiculos");
+                });
+
+            modelBuilder.Entity("Escalonamento.Models.Veiculos", b =>
+                {
+                    b.HasOne("Escalonamento.Models.Marca", "Marca")
+                        .WithMany()
+                        .HasForeignKey("MarcaId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

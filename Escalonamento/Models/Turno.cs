@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Escalonamento.Models
 {
-    public class Turnos
+    public class Turno
     {
         [Key]
-        public int TurnosId { get; set; }
+        public int TurnoId { get; set; }
         public string Nome { get; set; }
 
         [DataType(DataType.DateTime)]
