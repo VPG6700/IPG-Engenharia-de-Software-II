@@ -88,15 +88,24 @@ namespace Escalonamento.Migrations
 
                     b.Property<bool>("Disponibilidade");
 
-                    b.Property<string>("Marca")
-                        .IsRequired();
+                    b.Property<int>("MarcaId");
 
                     b.Property<string>("NumMatricula")
                         .IsRequired();
 
                     b.HasKey("VeiculosId");
 
+                    b.HasIndex("MarcaId");
+
                     b.ToTable("Veiculos");
+                });
+
+            modelBuilder.Entity("Escalonamento.Models.Veiculos", b =>
+                {
+                    b.HasOne("Escalonamento.Models.Marca", "Marca")
+                        .WithMany()
+                        .HasForeignKey("MarcaId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

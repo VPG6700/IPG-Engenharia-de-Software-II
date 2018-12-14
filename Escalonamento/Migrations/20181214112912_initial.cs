@@ -60,21 +60,29 @@ namespace Escalonamento.Migrations
                 {
                     VeiculosId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Marca = table.Column<string>(nullable: false),
+                    MarcaId = table.Column<int>(nullable: false),
                     NumMatricula = table.Column<string>(nullable: false),
                     Disponibilidade = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Veiculos", x => x.VeiculosId);
+                    table.ForeignKey(
+                        name: "FK_Veiculos_Marca_MarcaId",
+                        column: x => x.MarcaId,
+                        principalTable: "Marca",
+                        principalColumn: "MarcaId",
+                        onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Veiculos_MarcaId",
+                table: "Veiculos",
+                column: "MarcaId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Marca");
-
             migrationBuilder.DropTable(
                 name: "medico");
 
@@ -83,6 +91,9 @@ namespace Escalonamento.Migrations
 
             migrationBuilder.DropTable(
                 name: "Veiculos");
+
+            migrationBuilder.DropTable(
+                name: "Marca");
         }
     }
 }

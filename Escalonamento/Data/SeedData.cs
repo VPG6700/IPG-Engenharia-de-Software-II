@@ -9,38 +9,81 @@ namespace Escalonamento.Data
 {
     public static class SeedData
     {
-        public static void Populate(IServiceProvider applicationServices)
+        public static void Populate(EscalonamentoContext db)
         {
-            using
-            (var serviceScope = applicationServices.CreateScope())
+            SeedDataVeiculos(db);
+            SeeeDataMarca(db);
+        }
+
+   
+
+        private static void SeedDataVeiculos(EscalonamentoContext db)
+        {
+            if (db.Veiculos.Any()) return;
+            Marca marca = GetMarcaCreatingIfNeed(db, "Ford Mondeo");
+            CriarVeiculoSenaoExixte(db, "67-33-WQ", marca, true);
+            CriarVeiculoSenaoExixte(db, "07-13-WR", marca, true);
+             marca = GetMarcaCreatingIfNeed(db, "Mercedes Benz CLA");
+            CriarVeiculoSenaoExixte(db, "67-39-KK", marca, true);
+            CriarVeiculoSenaoExixte(db, "07-53-KR", marca, true);
+            marca = GetMarcaCreatingIfNeed(db, "Peugeot 308");
+            db.Veiculos.AddRange(
+                new Veiculos { MarcaId = marca.MarcaId, NumMatricula = "25-33-XQ", Disponibilidade = true },
+                new Veiculos { MarcaId = marca.MarcaId, NumMatricula = "56-00-TQ", Disponibilidade = true },
+                 new Veiculos { MarcaId = marca.MarcaId, NumMatricula = "00-10-RO", Disponibilidade = false }
+
+                 );
+            db.SaveChanges();
+
+
+
+        }
+
+        private static Veiculos CriarVeiculoSenaoExixte(EscalonamentoContext db, string Matricula, Marca marca, bool Disponibilidade)
+        {
+            Veiculos veiculos = db.Veiculos.SingleOrDefault(b => b.NumMatricula == Matricula);      
+
+
+            if (veiculos == null)
             {
-                var db = serviceScope.ServiceProvider.GetService<EscalonamentoContext>();
-                if (!db.Veiculos.Any())
-                {
-                    db.Veiculos.AddRange
-                        (new Veiculos { Marca = "Mercedes_Bens", NumMatricula = "25-33-XQ", Disponibilidade = true },
-                        new Veiculos { Marca = "Mercedes_Bens", NumMatricula = "56-00-TQ", Disponibilidade = true },
-                        new Veiculos { Marca = "TOYOTA", NumMatricula = "00-10-RO", Disponibilidade = false }
+                db.Veiculos.Add(new Veiculos{ NumMatricula = Matricula, MarcaId = marca.MarcaId,Disponibilidade=true });
+            }
 
-                    );
-                }
-                db.SaveChanges();
+            return veiculos;
+        }
+        
+        private static Marca GetMarcaCreatingIfNeed(EscalonamentoContext db, string nome)
+        {
+            Marca marca = db.Marca.SingleOrDefault(a => a.Nome == nome);
 
-                if (!db.Marca.Any())
-                {
-                    db.Marca.AddRange
-                    (new Marca { Nome = "Ford Mondeo"},
-                    new Marca { Nome = "Mercedes Benz CLA"},
-                    new Marca { Nome = "Volvo V60" },
-                    new Marca { Nome = "Toyota Auris" },
-                    new Marca { Nome = "Peugeot 308" },
-                    new Marca { Nome = "Volkswagen Passat" },
-                    new Marca { Nome = "Skoda Octavia" }
-                    );
-                }
+            if (marca == null)
+            {
+               marca = new Marca { Nome = nome };
+                db.Add(marca);
                 db.SaveChanges();
             }
+
+            return marca;
         }
+        private static void SeeeDataMarca(EscalonamentoContext db)
+        {
+            if (!db.Marca.Any())
+            {
+                db.Marca.AddRange
+                (new Marca { Nome = "Ford Mondeo" },
+                new Marca { Nome = "Mercedes Benz CLA" },
+                new Marca { Nome = "Volvo V60" },
+                new Marca { Nome = "Toyota Auris" },
+                new Marca { Nome = "Peugeot 308" },
+                new Marca { Nome = "Skoda Octavia" }
+                );
+             db.SaveChanges();
+            }
+            return;
+           
+        }
+
     }
 }
+
 

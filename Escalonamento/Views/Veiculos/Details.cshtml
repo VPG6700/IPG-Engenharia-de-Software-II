@@ -1,7 +1,7 @@
 ﻿@model Escalonamento.Models.Veiculos
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes";
 }
 
 <h2>Detalhes</h2>
@@ -14,7 +14,7 @@
             @Html.DisplayNameFor(model => model.Marca)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Marca)
+            @Html.DisplayFor(model => model.Marca.Nome)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.NumMatricula)
@@ -31,6 +31,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.VeiculosId">Edit</a> |
-    <a asp-action="Index">Voltar</a>
+    <a asp-action="Edit" asp-route-id="@Model.VeiculosId">Editar</a> |
+    <a asp-action="Index">Voltar a lista</a>
 </div>

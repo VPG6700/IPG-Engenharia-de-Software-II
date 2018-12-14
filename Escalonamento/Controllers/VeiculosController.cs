@@ -21,7 +21,8 @@ namespace Escalonamento.Controllers
         // GET: Veiculos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Veiculos.ToListAsync());
+            var escalonamentoContext = _context.Veiculos.Include(v => v.Marca);
+            return View(await escalonamentoContext.ToListAsync());
         }
 
         // GET: Veiculos/Details/5
@@ -33,6 +34,7 @@ namespace Escalonamento.Controllers
             }
 
             var veiculos = await _context.Veiculos
+                .Include(v => v.Marca)
                 .FirstOrDefaultAsync(m => m.VeiculosId == id);
             if (veiculos == null)
             {
@@ -45,7 +47,9 @@ namespace Escalonamento.Controllers
         // GET: Veiculos/Create
         public IActionResult Create()
         {
+            ViewData["MarcaId"] = new SelectList(_context.Marca, "MarcaId", "Nome");
             return View();
+            
         }
 
         // POST: Veiculos/Create
@@ -53,7 +57,7 @@ namespace Escalonamento.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("VeiculosId,Marca,NumMatricula,Disponibilidade")] Veiculos veiculos)
+        public async Task<IActionResult> Create([Bind("VeiculosId,MarcaId,NumMatricula,Disponibilidade")] Veiculos veiculos)
         {
             if (ModelState.IsValid)
             {
@@ -61,6 +65,7 @@ namespace Escalonamento.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["MarcaId"] = new SelectList(_context.Marca, "MarcaId", "Nome", veiculos.MarcaId);
             return View(veiculos);
         }
 
@@ -77,6 +82,7 @@ namespace Escalonamento.Controllers
             {
                 return NotFound();
             }
+            ViewData["MarcaId"] = new SelectList(_context.Marca, "MarcaId", "Nome", veiculos.MarcaId);
             return View(veiculos);
         }
 
@@ -85,7 +91,7 @@ namespace Escalonamento.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("VeiculosId,Marca,NumMatricula,Disponibilidade")] Veiculos veiculos)
+        public async Task<IActionResult> Edit(int id, [Bind("VeiculosId,MarcaId,NumMatricula,Disponibilidade")] Veiculos veiculos)
         {
             if (id != veiculos.VeiculosId)
             {
@@ -112,6 +118,7 @@ namespace Escalonamento.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["MarcaId"] = new SelectList(_context.Marca, "MarcaId", "Nome", veiculos.MarcaId);
             return View(veiculos);
         }
 
@@ -124,6 +131,7 @@ namespace Escalonamento.Controllers
             }
 
             var veiculos = await _context.Veiculos
+                .Include(v => v.Marca)
                 .FirstOrDefaultAsync(m => m.VeiculosId == id);
             if (veiculos == null)
             {
