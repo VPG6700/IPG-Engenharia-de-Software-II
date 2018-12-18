@@ -21,17 +21,7 @@
                 <input asp-for="Dia1" type="date" />
                 <span asp-validation-for="Dia1" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Turno1" class="control-label">Turno:</label>
-                <select name="Turno">
-
-                    <option>Turno da Manhã</option>
-                    <option>Turno da Tarde</option>
-                    <option>Turno da Noite</option>
-
-                </select>
-                <span asp-validation-for="Turno1" class="text-danger"></span>
-            </div>
+            
             <div class="form-group">
                 <label asp-for="Nome2" class="control-label">Nome do solicitado:</label>
                 <input asp-for="Nome2" class="form-control" />
@@ -43,15 +33,8 @@
                 <span asp-validation-for="Dia2" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Turno2" class="control-label">Turno:</label>
-                <select name="Turno">
-
-                    <option>Turno da Manhã</option>
-                    <option>Turno da Tarde</option>
-                    <option>Turno da Noite</option>
-
-                </select>
-                <span asp-validation-for="Turno2" class="text-danger"></span>
+                <label asp-for="Turno" class="control-label">Turno:</label>
+                <select asp-for="TurnoId" class="form-control" asp-items="ViewBag.TurnoId"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Criar" class="btn btn-default" />

@@ -69,15 +69,31 @@ namespace Escalonamento.Migrations
                     b.Property<string>("Nome2")
                         .IsRequired();
 
-                    b.Property<string>("Turno1")
-                        .IsRequired();
-
-                    b.Property<string>("Turno2")
-                        .IsRequired();
+                    b.Property<int>("TurnoId");
 
                     b.HasKey("TrocasId");
 
+                    b.HasIndex("TurnoId");
+
                     b.ToTable("Trocas");
+                });
+
+            modelBuilder.Entity("Escalonamento.Models.Turnos", b =>
+                {
+                    b.Property<int>("TurnosId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Duracao");
+
+                    b.Property<int>("HoraInicio");
+
+                    b.Property<string>("Nome")
+                        .IsRequired();
+
+                    b.HasKey("TurnosId");
+
+                    b.ToTable("Turnos");
                 });
 
             modelBuilder.Entity("Escalonamento.Models.Veiculos", b =>
@@ -98,6 +114,14 @@ namespace Escalonamento.Migrations
                     b.HasIndex("MarcaId");
 
                     b.ToTable("Veiculos");
+                });
+
+            modelBuilder.Entity("Escalonamento.Models.Trocas", b =>
+                {
+                    b.HasOne("Escalonamento.Models.Turnos", "Turno")
+                        .WithMany()
+                        .HasForeignKey("TurnoId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Escalonamento.Models.Veiculos", b =>

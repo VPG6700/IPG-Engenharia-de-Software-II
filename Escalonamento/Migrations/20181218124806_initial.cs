@@ -37,21 +37,18 @@ namespace Escalonamento.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Trocas",
+                name: "Turnos",
                 columns: table => new
                 {
-                    TrocasId = table.Column<int>(nullable: false)
+                    TurnosId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Nome1 = table.Column<string>(nullable: false),
-                    Dia1 = table.Column<DateTime>(nullable: false),
-                    Turno1 = table.Column<string>(nullable: false),
-                    Nome2 = table.Column<string>(nullable: false),
-                    Dia2 = table.Column<DateTime>(nullable: false),
-                    Turno2 = table.Column<string>(nullable: false)
+                    Nome = table.Column<string>(nullable: false),
+                    HoraInicio = table.Column<int>(nullable: false),
+                    Duracao = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Trocas", x => x.TrocasId);
+                    table.PrimaryKey("PK_Turnos", x => x.TurnosId);
                 });
 
             migrationBuilder.CreateTable(
@@ -75,6 +72,34 @@ namespace Escalonamento.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Trocas",
+                columns: table => new
+                {
+                    TrocasId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Nome1 = table.Column<string>(nullable: false),
+                    Dia1 = table.Column<DateTime>(nullable: false),
+                    Nome2 = table.Column<string>(nullable: false),
+                    Dia2 = table.Column<DateTime>(nullable: false),
+                    TurnoId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Trocas", x => x.TrocasId);
+                    table.ForeignKey(
+                        name: "FK_Trocas_Turnos_TurnoId",
+                        column: x => x.TurnoId,
+                        principalTable: "Turnos",
+                        principalColumn: "TurnosId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Trocas_TurnoId",
+                table: "Trocas",
+                column: "TurnoId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Veiculos_MarcaId",
                 table: "Veiculos",
@@ -91,6 +116,9 @@ namespace Escalonamento.Migrations
 
             migrationBuilder.DropTable(
                 name: "Veiculos");
+
+            migrationBuilder.DropTable(
+                name: "Turnos");
 
             migrationBuilder.DropTable(
                 name: "Marca");

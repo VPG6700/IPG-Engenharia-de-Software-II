@@ -30,7 +30,7 @@ namespace Escalonamento.Data
             db.Veiculos.AddRange(
                 new Veiculos { MarcaId = marca.MarcaId, NumMatricula = "25-33-XQ", Disponibilidade = true },
                 new Veiculos { MarcaId = marca.MarcaId, NumMatricula = "56-00-TQ", Disponibilidade = true },
-                 new Veiculos { MarcaId = marca.MarcaId, NumMatricula = "00-10-RO", Disponibilidade = false }
+                new Veiculos { MarcaId = marca.MarcaId, NumMatricula = "00-10-RO", Disponibilidade = false }
 
                  );
             db.SaveChanges();

@@ -23,11 +23,6 @@
         </tr>
         <tr>
             <th>
-                Turno:
-            </th>
-        </tr>
-        <tr>
-            <th>
                 Nome do solicitado:
             </th>
         </tr>
@@ -52,16 +47,13 @@
                 @Html.DisplayFor(modelItem => item.Dia1)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Turno1)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Nome2)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Dia2)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Turno2)
+                @Html.DisplayFor(modelItem => item.Turno)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.TrocasId">Edit</a> |

@@ -10,12 +10,12 @@ namespace Escalonamento.Models
     {
         [Key]
         public int TurnosId { get; set; }
+        [Required]
         public string Nome { get; set; }
-
-        [DataType(DataType.DateTime)]
-        public DateTime HoraInicio { get; set; }
-        [DataType(DataType.DateTime)]
-        public DateTime HoraFim { get; set; }
+        [Required]
+        public int HoraInicio { get; set; }
+        [Required]
+        public int Duracao { get; set; }
 
     }
 }

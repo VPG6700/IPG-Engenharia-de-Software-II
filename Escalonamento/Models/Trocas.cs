@@ -19,10 +19,6 @@ namespace Escalonamento.Models
         [DataType(DataType.DateTime)]
         public DateTime Dia1 { get; set; }
 
-        [Required(ErrorMessage = "Selecione o turno")]
-        public string Turno1 { get; set; }
-        
-
         [Required(ErrorMessage = "Digite o nome")]
         public string Nome2 { get; set; }
 
@@ -31,7 +27,8 @@ namespace Escalonamento.Models
         public DateTime Dia2 { get; set; }
 
         [Required(ErrorMessage = "Selecione o turno")]
-        public string Turno2 { get; set; }
+        public Turnos Turno { get; set; }
+        public int TurnoId { get; set; }
 
     }
 }
